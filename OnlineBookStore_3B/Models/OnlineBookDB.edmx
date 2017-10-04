@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BookDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BookDB.dbo.tblBook' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tblBook">
+          <Key>
+            <PropertyRef Name="Book_ID" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="Description" />
+            <PropertyRef Name="Price" />
+            <PropertyRef Name="User_ID" />
+          </Key>
+          <Property Name="Book_ID" Type="int" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Price" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Is_Available" Type="varchar" MaxLength="50" />
+          <Property Name="User_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BookDB.dbo.tblUser' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tblUser">
+          <Key>
+            <PropertyRef Name="User_ID" />
+            <PropertyRef Name="Username" />
+            <PropertyRef Name="Email_add" />
+            <PropertyRef Name="Password" />
+          </Key>
+          <Property Name="User_ID" Type="int" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email_add" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="Surname" Type="varchar" MaxLength="50" />
+          <Property Name="Cell_Num" Type="varchar" MaxLength="15" />
+          <Property Name="Street" Type="varchar" MaxLength="50" />
+          <Property Name="House_No" Type="varchar" MaxLength="50" />
+          <Property Name="Province" Type="varchar" MaxLength="50" />
+          <Property Name="City" Type="varchar" MaxLength="50" />
+          <Property Name="Photo" Type="image" />
+        </EntityType>
+        <EntityContainer Name="BookDBModelStoreContainer">
+          <EntitySet Name="tblBook" EntityType="Self.tblBook" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tblBook].[Book_ID] AS [Book_ID], 
+    [tblBook].[Title] AS [Title], 
+    [tblBook].[Description] AS [Description], 
+    [tblBook].[Price] AS [Price], 
+    [tblBook].[Is_Available] AS [Is_Available], 
+    [tblBook].[User_ID] AS [User_ID]
+    FROM [dbo].[tblBook] AS [tblBook]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tblUser" EntityType="Self.tblUser" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tblUser].[User_ID] AS [User_ID], 
+    [tblUser].[Username] AS [Username], 
+    [tblUser].[Email_add] AS [Email_add], 
+    [tblUser].[Password] AS [Password], 
+    [tblUser].[FirstName] AS [FirstName], 
+    [tblUser].[Surname] AS [Surname], 
+    [tblUser].[Cell_Num] AS [Cell_Num], 
+    [tblUser].[Street] AS [Street], 
+    [tblUser].[House_No] AS [House_No], 
+    [tblUser].[Province] AS [Province], 
+    [tblUser].[City] AS [City], 
+    [tblUser].[Photo] AS [Photo]
+    FROM [dbo].[tblUser] AS [tblUser]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BookDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblBook">
+          <Key>
+            <PropertyRef Name="Book_ID" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="Description" />
+            <PropertyRef Name="Price" />
+            <PropertyRef Name="User_ID" />
+          </Key>
+          <Property Name="Book_ID" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Is_Available" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="User_ID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblUser">
+          <Key>
+            <PropertyRef Name="User_ID" />
+            <PropertyRef Name="Username" />
+            <PropertyRef Name="Email_add" />
+            <PropertyRef Name="Password" />
+          </Key>
+          <Property Name="User_ID" Type="Int32" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email_add" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Cell_Num" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Street" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="House_No" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Province" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityContainer Name="BookDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblBooks" EntityType="Self.tblBook" />
+          <EntitySet Name="tblUsers" EntityType="Self.tblUser" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BookDBModelStoreContainer" CdmEntityContainer="BookDBEntities">
+          <EntitySetMapping Name="tblBooks">
+            <EntityTypeMapping TypeName="BookDBModel.tblBook">
+              <MappingFragment StoreEntitySet="tblBook">
+                <ScalarProperty Name="Book_ID" ColumnName="Book_ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Is_Available" ColumnName="Is_Available" />
+                <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUsers">
+            <EntityTypeMapping TypeName="BookDBModel.tblUser">
+              <MappingFragment StoreEntitySet="tblUser">
+                <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Email_add" ColumnName="Email_add" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Cell_Num" ColumnName="Cell_Num" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="House_No" ColumnName="House_No" />
+                <ScalarProperty Name="Province" ColumnName="Province" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
